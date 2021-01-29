@@ -47,6 +47,14 @@ public class PaymentController {
     public String paymentInfo_TimeoutHandler(Integer id) {
         return "/(ToT)/调用支付接口超时或异常、\t" + "\t当前线程池名字" + Thread.currentThread().getName();
     }
+
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("*****result: " + result);
+        return result;
+    }
+
 }
 
 
