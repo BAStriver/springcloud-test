@@ -1,5 +1,5 @@
 server:
-  port: 3355
+  port: 3366
 
 spring:
   application:
@@ -12,6 +12,7 @@ spring:
       profile: dev #读取后缀名称
       uri: http://localhost:3344
       #上面4个综合起来就是 main分支上 config-dev.yml：http://localhost:3344/main/config-dev.yml
+
   rabbitmq:
     host: localhost
     port: 5672
