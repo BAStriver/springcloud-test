@@ -5,9 +5,11 @@ import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
@@ -49,6 +51,14 @@ public class OrderHystrixController {
     public String paymentInfo_Global_FallbackMethod() {
         return "Global异常处理信息，请稍后再试， /(ToT)/";
     }
+
+    RestTemplate restTemplate = new RestTemplate();
+
+    @GetMapping(value="/consumer/payment/zipkin")
+    public String paymentZipkin() {
+        return restTemplate.getForObject("http://127.0.0.1:8001/payment/zipkin/",String.class);
+    }
+
 }
 
 
