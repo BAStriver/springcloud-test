@@ -17,7 +17,7 @@ public class GatewayConfig {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         RouteLocatorBuilder.Builder routes = builder.routes();
-        routes.route("path_route_eiletxie",
+        routes.route("path_route_bas",
                 r -> r.path("/guonei")
                         .uri("http://news.baidu.com/guonei")).build();
         return routes.build();
@@ -26,7 +26,7 @@ public class GatewayConfig {
     @Bean
     public RouteLocator customRouteLocator2(RouteLocatorBuilder builder) {
         RouteLocatorBuilder.Builder routes = builder.routes();
-        routes.route("path_route_eiletxie2",
+        routes.route("path_route_bas2",
                 r -> r.path("/guoji")
                         .uri("http://news.baidu.com/guoji")).build();
         return routes.build();
